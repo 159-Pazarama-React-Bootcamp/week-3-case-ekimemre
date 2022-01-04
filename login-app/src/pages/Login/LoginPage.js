@@ -1,12 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
 import Socials from "../../components/Socials";
 import styles from "./styles.module.css";
-import backAvatar from './BackgroundAvatar.png';
-import frontAvatar from './Avatar.png';
+import backAvatar from "../../images/BackgroundAvatar.png";
+import frontAvatar from "../../images/Avatar.png";
 
 function Login() {
 
@@ -48,8 +48,10 @@ function Login() {
           <Link to={"/forgot"}>
             <Label text={"Forgot Password?"} size={11}/> {/* TODO text-decoration: none*/} 
           </Link>
-          
-          <Button text={"Sign in"}/>
+
+          <Link to={"/dashboard"}>
+            <Button text={"Sign in"}/>
+          </Link>
           
           <span style={{display: "flex", justifyContent: "center"}}>
             <Label text={"or continue with"} size={12} color={"#bcbec0"}/>
@@ -62,9 +64,8 @@ function Login() {
             <Label text={"Don't have a account? Register for free"} size={14} color={"black"}/>
             </Link>
           </span>
-          
 
-          {/* <div>{JSON.stringify(form)}</div> */}
+          <div>{JSON.stringify(form)}</div>
         </div> 
       </div>
     </div>

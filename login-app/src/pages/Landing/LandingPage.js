@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styles from "./styles.module.css";
-import vector from './Vector.png';
-import frame from './Frame.png';
+import vector from "../../images/Vector.png";
+import frame from "../../images/Frame.png";
 
 function LandingPage() {
  
@@ -30,4 +30,4 @@ function LandingPage() {
     )
 }
 
-export default LandingPage
+export default LandingPage;
