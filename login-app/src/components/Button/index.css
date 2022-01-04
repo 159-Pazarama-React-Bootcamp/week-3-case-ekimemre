@@ -1,0 +1,14 @@
+.button {
+    width: 100%;
+    height: 50px;
+    left: calc(50% - 400px/2 - 421px);
+    top: calc(50% - 50px/2 + 87px);
+    margin-top: 40px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    background: #A93159;
+    color: #FFFFFF;
+    border-radius: 40px;
+}
