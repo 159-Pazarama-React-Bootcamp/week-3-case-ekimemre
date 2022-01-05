@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 import backAvatar from "../../images/BackgroundAvatar.png";
 import frontAvatar from "../../images/Avatar.png";
 
-function Login() {
+function Login({ setUserInformation }) {
 
   const [form, setForm] = useState({ userName: "", password: "" });
 
@@ -16,8 +16,13 @@ function Login() {
       setForm({ ...form, [event.target.name]: event.target.value });
   };
 
+  const onSubmit = (e) => {
+    e.preventDefault(); // Sayfa yenileniyor, nedeni ProtectedRoute'da Navigate etmemiz.
+  
+  }
+
   return (
-    <div className={styles.container}>
+    <form className={styles.container} onSubmit={onSubmit}>
       {/* Arkaplanda bulanık olarak gözüken resim için. */}
       <img src={backAvatar} alt="backAvatar" />
 
@@ -68,7 +73,7 @@ function Login() {
           <div>{JSON.stringify(form)}</div>
         </div> 
       </div>
-    </div>
+    </form>
   )
 }
 

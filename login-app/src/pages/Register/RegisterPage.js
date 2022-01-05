@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Input from "../../components/Input";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
@@ -7,16 +6,25 @@ import styles from "./styles.module.css";
 import backAvatar from "../../images/BackgroundAvatar.png";
 import frontAvatar from "../../images/Avatar.png";
 
-function RegisterPage() {
+function RegisterPage({ userList, addUser }) {
 
     const [form, setForm] = useState({ email: "", firstPassword: "" , secPassword: ""});
 
-    const handleChange = (event) => {
-        setForm({ ...form, [event.target.name]: event.target.value });
+    const handleChange = (e) => {
+        setForm({ ...form, [e.target.name]: e.target.value });
     };
-  
+    
+    const onSubmit = (e) => {
+      e.preventDefault();
+      //TODO Input Validations
+      if(form.email === '' || form.firstPassword === '' || form.secPassword === ''){
+        return false;
+      }
+    }
+
     return (
-      <div className={styles.container}>  
+      //Form kullandım çünkü buttonlarım component olarak tanımlandığı için onClick metoduna erisemiyordum.
+      <form className={styles.container} onSubmit={onSubmit}>  
         <img src={backAvatar} alt="backAvatar" />
         <div className={styles.whiteBox}>
           <img className={styles.avatar} src={frontAvatar} alt="Avatar" />
@@ -57,7 +65,7 @@ function RegisterPage() {
             <Button text={"Register for free"}/>
           </div> 
         </div>
-      </div>
+      </form>
     )
 }
 
