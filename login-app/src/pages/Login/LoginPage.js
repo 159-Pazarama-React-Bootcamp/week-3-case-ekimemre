@@ -1,5 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import UserContext from "../../context/UserContext";
 import Input from "../../components/Input";
 import Label from "../../components/Label";
 import Button from "../../components/Button";
@@ -8,7 +9,9 @@ import styles from "./styles.module.css";
 import backAvatar from "../../images/BackgroundAvatar.png";
 import frontAvatar from "../../images/Avatar.png";
 
-function Login({ setUserInformation }) {
+function Login() {
+
+  const { setUserInputs } = useContext(UserContext);
 
   const [form, setForm] = useState({ userName: "", password: "" });
 
@@ -16,13 +19,13 @@ function Login({ setUserInformation }) {
       setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const onSubmit = (e) => {
-    e.preventDefault(); // Sayfa yenileniyor, nedeni ProtectedRoute'da Navigate etmemiz.
-  
+  const handleSubmit = () => {
+    //UserInputs state'i burada guncelleniyor
+    setUserInputs({email: form.userName, password: form.password })
   }
 
   return (
-    <form className={styles.container} onSubmit={onSubmit}>
+    <div className={styles.container}>
       {/* Arkaplanda bulanık olarak gözüken resim için. */}
       <img src={backAvatar} alt="backAvatar" />
 
@@ -54,7 +57,7 @@ function Login({ setUserInformation }) {
             <Label text={"Forgot Password?"} size={11}/> {/* TODO text-decoration: none*/} 
           </Link>
 
-          <Link to={"/dashboard"}>
+          <Link to={"/dashboard"} onClick={handleSubmit}>
             <Button text={"Sign in"}/>
           </Link>
           
@@ -73,10 +76,9 @@ function Login({ setUserInformation }) {
           <div>{JSON.stringify(form)}</div>
         </div> 
       </div>
-    </form>
+    </div>
   )
 }
 
 export default Login;
-
 //crtl+l -> tüm satırı secer.!

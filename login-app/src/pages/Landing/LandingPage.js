@@ -2,14 +2,8 @@ import { Link } from 'react-router-dom';
 import styles from "./styles.module.css";
 import vector from "../../images/Vector.png";
 import frame from "../../images/Frame.png";
-import UserContext from '../../context/UserContext';
-import { useContext } from 'react';
 
 function LandingPage() {
-
-    const data = useContext(UserContext);
-    console.log(data);
- 
     return (
         <>
             <div className={styles.container}>

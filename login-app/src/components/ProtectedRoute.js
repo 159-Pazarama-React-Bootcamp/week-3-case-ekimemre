@@ -1,15 +1,17 @@
-import React, { useEffect } from 'react';
+import { useContext } from "react";
 import { Outlet, Navigate } from "react-router-dom";
-// import Register from "../pages/Register/RegisterPage"; or Navigate
-import { userAuth } from "../context/UserService";
+import UserContext from "../context/UserContext";
 
 function ProtectedRoute() {
 
-    //users state'i her değiştiğinde
-    const isAuth = userAuth();
+    const { users, userInputs } = useContext(UserContext);
+    const mails = users.map((element) => element.email).includes(userInputs.email);
+    const passwords = users.map((element) => element.passwords).includes(userInputs.passwords);
 
+    const isAuth = mails && passwords;
+    //isAuth ? <Outlet/> : <Navigate to="/login"/>
     return (
-        isAuth ? <Outlet/> : <Navigate to="/login"/> 
+        (isAuth) ? <Outlet/> : <Navigate to="/login"/> 
         // Yada navigator kullanılabilir.
     ); 
 }

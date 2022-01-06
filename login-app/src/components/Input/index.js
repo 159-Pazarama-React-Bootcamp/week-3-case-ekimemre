@@ -9,7 +9,6 @@ const Input = (props) => {
   const [inputType, setInputType] = useState(type);
 
   const passwordIconClick = () => {
-    console.log("tiklandi")
     if (inputType === "text") {
       setInputType("password");
     } else {
