@@ -6,7 +6,6 @@ import styles from "./styles.module.css";
 import backAvatar from "../../images/BackgroundAvatar.png";
 import frontAvatar from "../../images/Avatar.png";
 import UserContext from "../../context/UserContext";
-// import Button from "../../components/Button"; 
 
 function RegisterPage() {
 
@@ -17,8 +16,6 @@ function RegisterPage() {
     const handleChange = (e) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
-
-    
     
     const onSubmit = (e) => {
       // e.preventDefault(); Yönlendirmeyi durdurur.
@@ -91,8 +88,6 @@ function RegisterPage() {
               value={form.password}
               onChange={handleChange}
             />
-          
-            <div>{JSON.stringify(form)}</div>
 
             <Link to={"/login"} >
                 <button className={styles.button} onClick={e => onSubmit(e)}>Register for free</button>

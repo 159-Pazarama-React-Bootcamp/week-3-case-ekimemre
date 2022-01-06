@@ -12,9 +12,7 @@ import frontAvatar from "../../images/Avatar.png";
 function Login() {
 
   const { setUserInputs } = useContext(UserContext);
-
   const [form, setForm] = useState({ userName: "", password: "" });
-
   const handleChange = (event) => {
       setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -73,7 +71,7 @@ function Login() {
             </Link>
           </span>
 
-          <div>{JSON.stringify(form)}</div>
+          {/* <div>{JSON.stringify(form)}</div> State kontrolü icin sakla */}
         </div> 
       </div>
     </div>

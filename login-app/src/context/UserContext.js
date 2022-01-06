@@ -1,4 +1,3 @@
-import axios from "axios";
 import { createContext, useState, useEffect } from "react";
 
 const UserContext = createContext();
@@ -11,8 +10,6 @@ export const UserProvider = ( {children } ) => {
 
     const [users, setUsers] = useState([]);
     const [userInputs, setUserInputs] = useState([]);
-
-    //TODO kullanıcıları localStorage'e ekle
 
     //Proivider ilk mount olduğunda API'de bulunan users endpointini alırız.
     useEffect( () => {
@@ -27,8 +24,6 @@ export const UserProvider = ( {children } ) => {
     }, [])
 
     // useEffect( () => {
-
-
     // }, [users]) // her degistiginde tekrar get cagirisi yapilmali mi?
 
     console.log(users);
@@ -51,10 +46,3 @@ export default UserContext;
 // export const useUser= () => useContext(UserContext);
 // -> import { useUser} from "../context/UserContext"
 // const { users } = useUser();
-
-
-    // useEffect( () => {
-    //     axios.get("https://61d5cf5b2b4f730017a82a81.mockapi.io/users")
-    //     .then(response => setUsers(response.data))
-    //     .catch(e => console.log(e));
-    // }, [])
