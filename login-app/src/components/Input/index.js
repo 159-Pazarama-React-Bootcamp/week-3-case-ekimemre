@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import EyeIcon from "../svg/EyeIcon";
-
 import "./index.css";
 
 const Input = (props) => {
   const { label, type, placeholder, ...args } = props;
   const [inputType, setInputType] = useState(type);
 
+  // Sifre inputu icin görünürlük type'ını değiştiriyor.
   const passwordIconClick = () => {
     if (inputType === "text") {
       setInputType("password");
@@ -15,6 +15,7 @@ const Input = (props) => {
       setInputType("text");
     }
   };
+  
   return (
     <div className='container'>
       <input

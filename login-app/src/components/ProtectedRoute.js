@@ -5,14 +5,18 @@ import UserContext from "../context/UserContext";
 function ProtectedRoute() {
 
     //Login page'de userInputs state'i güncelleniyor. 
-    const { users, userInputs } = useContext(UserContext);
-    const mails = users.map((element) => element.email).includes(userInputs.email);
-    const passwords = users.map((element) => element.passwords).includes(userInputs.passwords);
+    const { userInputs } = useContext(UserContext);
+    const password = localStorage.getItem(userInputs.email); //Email keyi ile locale kaydedilen passwordu alır.
+    const isAuth = (password === userInputs.password) ? true : false;
 
-    const isAuth = mails && passwords;
     return (
         (isAuth) ? <Outlet/> : <Navigate to="/login"/> 
     ); 
 }
 
 export default ProtectedRoute;
+
+// _HATALI KONTROL_  
+// const mails = users.map((element) => element.email).includes(userInputs.email);
+// const passwords = users.map((element) => element.passwords).includes(userInputs.passwords);
+//-> İkisinin aynı anda var oldugunu kontrol eder. Aynı kullanıcının email-pass kontrolunu saglanamaz.

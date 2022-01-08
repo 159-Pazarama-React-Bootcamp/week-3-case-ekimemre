@@ -6,7 +6,7 @@ function Dashboard() {
             <h1> Dashboard </h1>
             <h3> Başarıyla giriş yapıldı. </h3> 
             {/* Logout butonu eklenebilir?*/}
-            <button>Log out</button>
+            <button>Log out (Aktif degil)</button> 
         </div>
     )
 }

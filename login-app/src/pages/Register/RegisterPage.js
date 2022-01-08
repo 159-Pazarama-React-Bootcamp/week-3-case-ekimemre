@@ -36,7 +36,7 @@ function RegisterPage() {
         setUsers([...users, {email:form.email, password: form.firtPassword}]);
         localStorage.setItem(form.email, form.firstPassword);
 
-        // API ye post isteği yollayarak kayıt olma işlemini tamamlandı.
+        // API ye post isteği yollayarak kayıt olma işlemi tamamlandı.
         fetch("https://61d5cf5b2b4f730017a82a81.mockapi.io/users", {
         method: 'POST',
         body: JSON.stringify({
@@ -92,11 +92,11 @@ function RegisterPage() {
             <Link to={"/login"} >
                 <button className={styles.button} onClick={e => onSubmit(e)}>Register for free</button>
             </Link>
+            {/* button onClick eventi için ön kontrol yapılması gerekiyor. Component olarak tanımladıgın Button icin  kontrol saglayamadım. Form olarak tanımlayabilir?*/}
 
             {/* <Link to={"/login"} >
                 <Button text={"Register for free"}/>
-            </Link> 
-            Button componenti icin onClick eventini kontrol etmek gerekiyor. Form olarak tanımlayabilir miydim? Bilmiyorum*/}  
+            </Link> */}  
           </div> 
         </div>
       </div>

@@ -11,8 +11,8 @@ import frontAvatar from "../../images/Avatar.png";
 
 function Login() {
 
-  const { setUserInputs } = useContext(UserContext);
-  const [form, setForm] = useState({ userName: "", password: "" });
+  const { setUserInputs } = useContext(UserContext); //UserContext içinde tanımlanan stateleri ProtectedRoute icin burada güncelleniyor.
+  const [form, setForm] = useState({ userName: "", password: "" }); //Yukarıdaki stati direkt guncellemeden ayrı bir state olarak kontrol saglanıyor.
   const handleChange = (event) => {
       setForm({ ...form, [event.target.name]: event.target.value });
   };
@@ -33,7 +33,7 @@ function Login() {
           <h3 className={styles.secondHeading}>Your Logo</h3>
           <h1 className={styles.firstHeading}>Login</h1>
 
-          <Label text={"E-mail"} size={14}/>
+          <Label text={"E-mail"} size={14}/> 
           <Input
             label={"Email"}
             type={"text"}
@@ -63,7 +63,7 @@ function Login() {
             <Label text={"or continue with"} size={12} color={"#bcbec0"}/>
           </span>
 
-          <Socials />
+          <Socials /> 
 
           <span style={{ display: "flex", justifyContent: "center",}}>
             <Link to={"/register"}>
@@ -79,4 +79,3 @@ function Login() {
 }
 
 export default Login;
-//crtl+l -> tüm satırı secer.!

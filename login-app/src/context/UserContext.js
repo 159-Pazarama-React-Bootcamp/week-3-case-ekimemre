@@ -16,6 +16,7 @@ export const UserProvider = ( {children } ) => {
         fetch("https://61d5cf5b2b4f730017a82a81.mockapi.io/users")
         .then(response => response.json())
         .then(json => {
+            localStorage.clear(); // Silinen üyelikler icin...
             setUsers(json);
             json.forEach((user) => {
                 localStorage.setItem(user.email,user.password); //Kullanıcıları key:email value:password olarak locale eklenmesi.

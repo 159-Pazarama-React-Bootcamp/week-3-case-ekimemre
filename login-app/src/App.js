@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "./pages/Dashboard/DashboardPage";
+import Dashboard from "./pages/Dashboard/DashboardPage"; 
 import Landing from "./pages/Landing/LandingPage";
 import Login from "./pages/Login/LoginPage";
 import Register from "./pages/Register/RegisterPage";
 import ProtectedRoute from "./components/ProtectedRoute"; 
 import { UserProvider } from "./context/UserContext";
+//Sayfalar icin karışıklıgı engellemek icin index.js olusturmadım.
 
 const App = () => {
     return (
