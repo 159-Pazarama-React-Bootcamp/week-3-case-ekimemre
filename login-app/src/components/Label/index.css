@@ -1,0 +1,16 @@
+.label {
+    /* position: absolute;
+    width: 34px;
+    height: 16px;
+    left: calc(50% - 34px/2 - 605px);
+    top: calc(50% - 16px/2 - 183px); */
+    font-family: "Poppins", sans-serif;
+    font-style: small;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    color: #414042;
+    margin-top: 35px;
+    margin-bottom: 8px;
+}
